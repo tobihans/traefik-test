@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.5
+    container_name: traefik
+    ports:
+      - 443:443
+      - 8080:8080
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+  
+  frontend-1:
+    image: traefik-playground-frontend
+    build: ./front
+    labels:
+      - traefik.enable=true
+
+  frontend-2:
+    image: traefik-playground-frontend
+    labels:
+      - traefik.enable=true
+
+  api-1:
+    image: traefik-playground-api
+    build: ./api
+    environment:
+      - SERVER=server-1
+    labels:
+      - traefik.enable=true
+
+  api-2:
+    image: traefik-playground-api
+    environment:
+      - SERVER=server-2
+    labels:
+      - traefik.enable=true
+  
+  api-3:
+    image: traefik-playground-api
+    environment:
+      - SERVER=server-3
+    labels:
+      - traefik.enable=true

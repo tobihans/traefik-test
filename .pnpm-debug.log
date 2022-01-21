@@ -1,0 +1,37 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "/home/linuxbrew/.linuxbrew/Cellar/node/16.8.0/pnpm-global/5"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/home/tobi/.pnpm-store/v3",
+    "virtualStoreDir": "/home/linuxbrew/.linuxbrew/Cellar/node/16.8.0/pnpm-global/5/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/home/linuxbrew/.linuxbrew/Cellar/node/16.8.0/pnpm-global/5",
+    "stage": "resolution_started"
+  },
+  "4 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "@nest/cli is not in the npm registry, or you have no permission to fetch it.\n\nAn authorization header was used: Bearer 9d18[hidden]",
+    "request": {
+      "authHeaderValue": "Bearer 9d18c868-3a51-4c4d-b84b-eeca9fc1107f",
+      "url": "https://registry.npmjs.org/@nest%2Fcli"
+    },
+    "response": {
+      "size": 0
+    },
+    "pkgName": "@nest/cli",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET https://registry.npmjs.org/@nest%2Fcli: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET https://registry.npmjs.org/@nest%2Fcli: Not Found - 404\n    at RetryOperation._fn (/home/linuxbrew/.linuxbrew/lib/node_modules/pnpm/dist/pnpm.cjs:85374:19)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}

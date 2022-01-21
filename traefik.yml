@@ -1,0 +1,41 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false 
+
+# Enable access to traefik dashboard
+api:
+  dashboard: false
+  insecure: true
+
+
+entryPoints:
+  web:
+    address: :80
+
+  websecure:
+    address: :443
+
+  api:
+    address: :2022
+
+certificatesResolvers:
+  staging: # As this is just a playground for me
+    acme:
+      email: dev.tobihans@gmail.com
+      storage: /etc/traefik/certs/acme.json
+      caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+      httpChallenge:
+        entryPoint: web
+
+################################################################
+# Docker configuration backend
+################################################################
+
+providers:
+  # Enable Docker configuration backend
+  docker:
+    exposedByDefault: false
+  file:
+    directory: /etc/traefik
+    watch: true
+
